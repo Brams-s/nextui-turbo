@@ -1,8 +1,11 @@
 import type { Config } from "tailwindcss";
 
-import baseConfig from "@acme/tailwind-config";
+import webConfig from "@acme/web-ui/tailwind.config";
 
 export default {
-  content: ["./src/**/*.{ts,tsx}"],
-  presets: [baseConfig],
+  presets: [webConfig],
+  content: [
+    "./src/**/*.{ts,tsx}",
+    "../../node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
 } satisfies Config;
