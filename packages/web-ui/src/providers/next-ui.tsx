@@ -1,7 +1,12 @@
 "use client";
 
+import type { NextUIProviderProps } from "@nextui-org/react";
 import { NextUIProvider } from "@nextui-org/react";
 
-export function AppUIProvider({ children }: { children: React.ReactNode }) {
+interface AppUIProviderProps extends NextUIProviderProps {
+  children: React.ReactNode;
+}
+
+export function AppUIProvider({ children }: AppUIProviderProps) {
   return <NextUIProvider>{children}</NextUIProvider>;
 }
