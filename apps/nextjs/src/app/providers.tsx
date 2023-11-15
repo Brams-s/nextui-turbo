@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental";
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import superjson from "superjson";
+
+import { AppUIProvider } from "@acme/web-ui";
 
 import { env } from "~/env.mjs";
 import { api } from "~/utils/api";
@@ -21,6 +24,8 @@ export function TRPCReactProvider(props: {
   children: React.ReactNode;
   headers?: Headers;
 }) {
+  const router = useRouter();
+
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -57,7 +62,9 @@ export function TRPCReactProvider(props: {
     <api.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryStreamedHydration transformer={superjson}>
-          {props.children}
+          <AppUIProvider navigate={void router.push}>
+            {props.children}
+          </AppUIProvider>
         </ReactQueryStreamedHydration>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

@@ -7,6 +7,6 @@ interface AppUIProviderProps extends NextUIProviderProps {
   children: React.ReactNode;
 }
 
-export function AppUIProvider({ children }: AppUIProviderProps) {
-  return <NextUIProvider>{children}</NextUIProvider>;
+export function AppUIProvider({ navigate, children }: AppUIProviderProps) {
+  return <NextUIProvider navigate={navigate}>{children}</NextUIProvider>;
 }
