@@ -39,21 +39,44 @@ The NextUI Turbo project includes the following structure:
 
 ```text
 .github
+  └─ workflows
+        └─ CI with pnpm cache setup
 .vscode
+  └─ Recommended extensions and settings for VSCode users
 apps
   ├─ auth-proxy
+  |   ├─ Nitro server to proxy OAuth requests in preview deployments
+  |   └─ Uses Auth.js Core
   ├─ expo
+  |   ├─ Expo SDK 49
+  |   ├─ React Native using React 18
+  |   ├─ Navigation using Expo Router
+  |   ├─ Tailwind using Nativewind
+  |   └─ Typesafe API calls using tRPC
   └─ next.js
+      ├─ Next.js 14
+      ├─ React 18
+      ├─ Tailwind CSS
+      └─ E2E Typesafe API Server & Client
 packages
   ├─ api
+  |   └─ tRPC v10 router definition
   ├─ auth
+  |   └─ Authentication using next-auth. **NOTE: Only for Next.js app, not Expo**
   ├─ db
-  └─ web-ui     # Newly added package with NextUI components
+  |   └─ Typesafe db calls using Drizzle & Planetscale
+  └─ web-ui
+      └─ NextUI components for UI design
 tooling
   ├─ eslint
+  |   └─ shared, fine-grained, eslint presets
   ├─ prettier
+  |   └─ shared prettier configuration
   ├─ tailwind
+  |   └─ shared tailwind configuration
   └─ typescript
+      └─ shared tsconfig you can extend from
+
 ```
 
 ### Usage
