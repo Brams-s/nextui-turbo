@@ -25,6 +25,7 @@ export function TRPCReactProvider(props: {
   headers?: Headers;
 }) {
   const router = useRouter();
+  const navigate = router.push.bind(router);
 
   const [queryClient] = useState(
     () =>
@@ -62,9 +63,7 @@ export function TRPCReactProvider(props: {
     <api.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryStreamedHydration transformer={superjson}>
-          <AppUIProvider navigate={void router.push}>
-            {props.children}
-          </AppUIProvider>
+          <AppUIProvider navigate={navigate}>{props.children}</AppUIProvider>
         </ReactQueryStreamedHydration>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
