@@ -1,3 +1,7 @@
+/* Custom Components */
+export * from "./theme-switch";
+
+/* NextUI Components */
 export * from "@nextui-org/accordion";
 export * from "@nextui-org/aria-utils";
 export * from "@nextui-org/avatar";
@@ -32,5 +36,3 @@ export * from "@nextui-org/table";
 export * from "@nextui-org/tabs";
 export * from "@nextui-org/theme";
 export * from "@nextui-org/tooltip";
-
-// export * from "./CustomButtons";
