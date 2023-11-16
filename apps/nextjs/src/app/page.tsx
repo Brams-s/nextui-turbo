@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { Button } from "@acme/web-ui";
+import { ThemeSwitch } from "@acme/web-ui";
 
 import { AuthShowcase } from "./_components/auth-showcase";
 import {
@@ -36,7 +36,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <Button>Hello World</Button>
+      <ThemeSwitch />
     </main>
   );
 }
